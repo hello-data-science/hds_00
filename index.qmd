@@ -72,9 +72,9 @@ summary(amd)
 amd_first_injection_vas <- amd |>
   select(anon_id,
          va, 
-         injnum, 
+         time, 
          age_group) |>
-  filter(injnum == 1)
+  filter(time == 0)
 ```
 
 > -   N rows in full dataset: `r nrow(amd)`
@@ -97,15 +97,6 @@ Histogram
 amd_first_injection_vas |>
     ggplot(aes(x = va)) +
     geom_histogram(aes(fill = age_group), alpha = 0.7, binwidth = 5) +
-    theme_bw()
-```
-
-Density plot
-
-```{r}
-amd_first_injection_vas |>
-    ggplot(aes(x = va)) +
-    geom_density(aes(fill = age_group), alpha = 0.5) +
     theme_bw()
 ```
 
