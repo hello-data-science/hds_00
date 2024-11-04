@@ -50,8 +50,7 @@ SELECT * FROM amd LIMIT 10;
 
 ```{sql}
 #| connection: "con"
-
-DESCRIBE amd
+DESCRIBE amd;
 ```
 
 ## Selecting columns and filtering rows

@@ -1,5 +1,5 @@
 ---
-title: "SQL and dbplyr"
+title: "SQL and dbplyr ('Big Data')"
 author: "Me"
 format: 
   html:
@@ -16,6 +16,8 @@ editor_options:
 ---
 
 ```{r}
+#| message: false
+#| warning: false
 library(dplyr)
 library(duckdb)
 library(ggplot2)
@@ -36,6 +38,13 @@ con <- dbConnect(duckdb::duckdb())
 
 # amd_db <- tbl(con, "read_csv_auto('MEH_AMD_survivaloutcomes_database.csv')")
 ```
+
+# Tips for big data
+
+- Upgrade hardware
+- Use only required rows and columns (e.g. pre-filter using bash or R/Python to process the file line by line; use `data.table::fread()` to select required columns only when importing)
+- Use `data.table` package (R) or `polars` library (Python)
+- Query the data out of memory (e.g. Parquet, SQL)
 
 # Query csv file directly
 
